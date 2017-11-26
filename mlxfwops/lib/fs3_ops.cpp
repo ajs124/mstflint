@@ -388,7 +388,7 @@ bool Fs3Operations::VerifyTOC(u_int32_t dtoc_addr, bool& bad_signature, VerifyCa
     _fs3ImgInfo.numOfItocs = section_index - 1;
     if (!mfg_exists) {
         _badDevDataSections = true;
-        return errmsg("No \""MFG_INFO"\" info section.");
+        return errmsg("No \"" MFG_INFO "\" info section.");
     }
     return ret_val;
 }

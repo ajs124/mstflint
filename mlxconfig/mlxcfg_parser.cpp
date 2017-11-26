@@ -65,7 +65,7 @@ void MlxCfg::printHelp()
 {
     // print opening
     printf(IDENT"NAME:\n"
-           IDENT2   MLXCFG_NAME"\n"
+           IDENT2   MLXCFG_NAME "\n"
            IDENT"SYNOPSIS:\n"
            IDENT2    MLXCFG_NAME " [-d <device> ] [-y] <s[et] <parameters to set>|q[uery]|r[eset]>\n");
 
@@ -98,9 +98,9 @@ void MlxCfg::printHelp()
     // print usage examples
     printf("\n");
     printf(IDENT"Examples:\n");
-    printf(IDENT2"%-35s: %s\n", "To query current Configuration", MLXCFG_NAME" -d "MST_DEV_EXAMPLE" query");
-    printf(IDENT2"%-35s: %s\n", "To set Configuration", MLXCFG_NAME" -d "MST_DEV_EXAMPLE" set SRIOV_EN=1 NUM_OF_VFS=16 WOL_MAGIC_EN_P1=1");
-    printf(IDENT2"%-35s: %s\n", "To reset Configuration", MLXCFG_NAME" -d "MST_DEV_EXAMPLE" reset");
+    printf(IDENT2"%-35s: %s\n", "To query current Configuration", MLXCFG_NAME " -d " MST_DEV_EXAMPLE " query");
+    printf(IDENT2"%-35s: %s\n", "To set Configuration", MLXCFG_NAME " -d " MST_DEV_EXAMPLE " set SRIOV_EN=1 NUM_OF_VFS=16 WOL_MAGIC_EN_P1=1");
+    printf(IDENT2"%-35s: %s\n", "To reset Configuration", MLXCFG_NAME " -d " MST_DEV_EXAMPLE " reset");
     printf("\n");
     printf(IDENT"Supported devices:\n");
     printf(IDENT2"ConnectX3, ConnectX3-Pro (FW 2.31.5000 and above).\n");
@@ -113,7 +113,7 @@ void MlxCfg::printVersion()
 }
 
 void MlxCfg::printUsage() {
-    printf("\n"IDENT"Usage:\n"
+    printf("\n" IDENT "Usage:\n"
            IDENT2    MLXCFG_NAME " [-d <device> ] [-y] <s[et] <parameters to set>|q[uery]|r[eset]>\n\n");
 }
 
@@ -243,11 +243,11 @@ mlxCfgStatus MlxCfg::parseArgs(int argc, char* argv[])
     }
     i++;
     if (_mlxParams.cmd == Mc_UnknownCmd) {
-        return err(true, "No command found. For more information please run "MLXCFG_NAME" -h|--help.");
+        return err(true, "No command found. For more information please run " MLXCFG_NAME " -h|--help.");
     }
     // we parsed input until the set/query/reset cmd
     if (i == argc && _mlxParams.cmd == Mc_Set) {
-        return err(true, "missing configuration arguments. For more information please run "MLXCFG_NAME" -h|--help.");
+        return err(true, "missing configuration arguments. For more information please run " MLXCFG_NAME " -h|--help.");
     }
     if (i != argc && (_mlxParams.cmd == Mc_Reset || _mlxParams.cmd == Mc_Query)) {
         return err(true, "%s command expects no argument but %d argument recieved", (_mlxParams.cmd == Mc_Reset) ? "reset" : "query", argc -i);
